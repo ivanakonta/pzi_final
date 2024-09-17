@@ -10,17 +10,24 @@ return [
     [ // $staticRoutes
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/reservation' => [[['_route' => 'app_reservation', '_controller' => 'App\\Controller\\ReservationController::index'], null, null, null, false, false, null]],
+        '/restaurants' => [[['_route' => 'restaurants', '_controller' => 'App\\Controller\\RestaurantController::index'], null, null, null, false, false, null]],
+        '/create-restaurant' => [[['_route' => 'create_restaurant', '_controller' => 'App\\Controller\\RestaurantController::createRestaurant'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
+        '/' => [[['_route' => 'welcome', '_controller' => 'App\\Controller\\WelComeController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
                 .'|/_error/(\\d+)(?:\\.([^/]++))?(*:35)'
+                .'|/edit\\-restaurant/([^/]++)(*:68)'
+                .'|/restaurant/([^/]++)(*:95)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
-        35 => [
-            [['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null],
+        35 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        68 => [[['_route' => 'restaurant_edit', '_controller' => 'App\\Controller\\RestaurantController::editRestaurant'], ['id'], null, null, false, true, null]],
+        95 => [
+            [['_route' => 'restaurant_details', '_controller' => 'App\\Controller\\SecurityController::showDetails'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

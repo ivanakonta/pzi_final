@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">{{ restaurant.name }} Details</h1>
+        <div class="row">
+            <div class="col-md-6">
+                {% if restaurant.photo %}
+                    <img src="{{ asset('uploads/' ~ restaurant.photo) }}" class="img-fluid" alt="{{ restaurant.name }}" style="max-width: 250px; max-height: 250px;">
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <p><strong>Contact:</strong> {{ restaurant.contact }}</p>
+                <p><strong>Email:</strong> {{ restaurant.email }}</p>
+                {% if restaurant.menu %}
+                    <a href="{{ asset('uploads/' ~ restaurant.menu) }}" target="_blank" class="btn btn-secondary">View Menu (PDF)</a>
+                {% endif %}
+                <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}" class="btn btn-warning">Edit</a>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

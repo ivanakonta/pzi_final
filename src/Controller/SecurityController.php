@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Restaurant;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -29,4 +30,11 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+    #[Route(path: '/restaurant/{id}', name: 'restaurant_details')]
+    public function showDetails(Restaurant $restaurant): Response
+{
+    return $this->render('restaurant/details.html.twig', [
+        'restaurant' => $restaurant,
+    ]);
+}
 }

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Restaurants</h1>
+        <div class="row">
+            {% for restaurant in restaurants %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        {% if restaurant.photo %}
+                            <img src="{{ asset('uploads/' ~ restaurant.photo) }}" class="card-img-top" alt="{{ restaurant.name }}" style="max-width: 250px; max-height: 250px;">
+                        {% endif %}
+                        {% if restaurant.menu %}
+                            <a href="{{ asset('uploads/' ~ restaurant.menu) }}" target="_blank" class="btn btn-secondary">View Menu (PDF)</a>
+                        {% endif %}
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ restaurant.name }}</h5>
+                            <p class="card-text"><strong>Contact:</strong> {{ restaurant.contact }}</p>
+                            <p class="card-text"><strong>Email:</strong> {{ restaurant.email }}</p>
+                            {% if app.user and restaurant.user and restaurant.user == app.user %}
+                                <a href="{{ path('restaurant_details', {'id': restaurant.id}) }}" class="btn btn-primary">Details</a>
+                                
+                            {% else %}
+                            <a href="{{ path('restaurant_details', {'id': restaurant.id}) }}" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '89baf2ace7e848d33a2b61bc594a7c4fb3543aa4',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '89baf2ace7e848d33a2b61bc594a7c4fb3543aa4',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -235,6 +235,15 @@
                 0 => '1.0|2.0|3.0',
             ),
         ),
+        'symfony/asset' => array(
+            'pretty_version' => 'v7.0.3',
+            'version' => '7.0.3.0',
+            'reference' => '3ae493792fc17cc31b84e231f30f2d154575f171',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/asset',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/cache' => array(
             'pretty_version' => 'v7.0.3',
             'version' => '7.0.3.0',
@@ -427,6 +436,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'symfony/mime' => array(
+            'pretty_version' => 'v7.0.3',
+            'version' => '7.0.3.0',
+            'reference' => 'c1ffe24ba6fdc3e3f0f3fcb93519103b326a3716',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/mime',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/options-resolver' => array(
             'pretty_version' => 'v7.0.0',
             'version' => '7.0.0.0',
@@ -472,6 +490,15 @@
             'reference' => '07094a28851a49107f3ab4f9120ca2975a64b6e1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-intl-icu',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-intl-idn' => array(
+            'pretty_version' => 'v1.29.0',
+            'version' => '1.29.0.0',
+            'reference' => 'a287ed7475f85bf6f61890146edbc932c0fff919',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-intl-idn',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -715,6 +742,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'twbs/bootstrap' => array(
+            'pretty_version' => 'v5.3.3',
+            'version' => '5.3.3.0',
+            'reference' => '6e1f75f420f68e1d52733b8e407fc7c3766c9dba',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twbs/bootstrap',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'twig/twig' => array(
             'pretty_version' => 'v3.8.0',
             'version' => '3.8.0.0',
@@ -723,6 +759,12 @@
             'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),
             'dev_requirement' => false,
+        ),
+        'twitter/bootstrap' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => 'v5.3.3',
+            ),
         ),
     ),
 );

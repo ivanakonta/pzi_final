@@ -31,6 +31,16 @@ class Restaurant
     #[ORM\Column(length: 1000, nullable: true)]
     private ?string $termsAndConditions = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $menu = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $email = null;
+
+    #[ORM\OneToOne(inversedBy: 'restaurant', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +114,42 @@ class Restaurant
     public function setTermsAndConditions(?string $termsAndConditions): static
     {
         $this->termsAndConditions = $termsAndConditions;
+
+        return $this;
+    }
+
+    public function getMenu(): ?string
+    {
+        return $this->menu;
+    }
+
+    public function setMenu(string $menu): static
+    {
+        $this->menu = $menu;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
